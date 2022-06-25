@@ -32,5 +32,6 @@ class Script():
             group (string): The name of the group.
             action (Action): The action to remove.
         """
-        if Players in Players.players:
-            Players.players[Players].append(Scores)
+        for player_scores:
+            print(f'SCORE: Player_I ={PLAYER_I = SCORE}')
+            print(f'SCORE: Player_II ={PLAYER_II = SCORE}')
