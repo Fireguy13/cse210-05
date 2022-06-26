@@ -1,4 +1,3 @@
-
 from abc import ABCMeta, abstractmethod
 from keyboard_service import KeyboardService
 
@@ -14,4 +13,3 @@ class Execution(metaclass=ABCMeta):
         # Execution will need to have an execute method, with details
         # on what execute means and does for that inherited class.
         pass
-
