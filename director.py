@@ -9,7 +9,7 @@ from scores import Scores
 from script import Script
 from contestants import Contestants
 from snake import Snake
-from script import Player_I, Player_II
+from player_move import PlayerMove
 from video_service import VideoService
 
 
@@ -52,15 +52,13 @@ class Director():
         while self._video_service.is_window_open():
             self._video_service.clear_buffer()
             self._keyboard_service.set_direction_for_contestants(contestants)
+            actions = []
             if time_since_last_move >= move_at:
-                for player in contestants.get_players():    
-                    player.move_next()
+                for player in contestants.get_players():
+                    actions.append(PlayerMove(player))
                 time_since_last_move = 0
-            self._video_service.draw_players(contestants.get_players())
             if self._collision_detection == True:
-                self._collision_detection()
-                # Change all colors to white
-                # Execution.execute()
+                # find any collision actions and append them to the actions list
                 if contestants.get_players[0].score.get_points() > contestants.get_players[1].score.get_points():
                     print('Player 1 wins!\n GAME OVER!')
                 if  contestants.get_players[0].score.get_points() < contestants.get_players[1].score.get_points():
@@ -70,6 +68,9 @@ class Director():
                 return
             #self.update_scores.get_points()+ self.update_scores.add_points() == self.updated_scores 
             #self.script_score.display_scores(self._video_service)
+            for action in actions:
+                action.execute()
+            self._video_service.draw_players(contestants.get_players())
             self._video_service.flush_buffer()
             time_since_last_move += 1/constants.FRAME_RATE
             sleep(1/constants.FRAME_RATE)
