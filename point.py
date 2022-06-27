@@ -21,7 +21,7 @@ class Point():
         self._x = x 
         self._y = y
 
-    def add(self, contestant):
+    def add(self, direction):
         """Gets a new point that is the sum of this and the given one.
 
         Args:
@@ -30,9 +30,8 @@ class Point():
         Returns:
             Point: A new Point that is the sum.
         """
-        x = self._x + contestant.execute.get_x()
-        y = self._y + contestant.execute.get_y()
-        return Point(x, y)
+        self._x += direction.get_x()
+        self._y += direction.get_y()
 
     def equals(self, other):
         """Whether or not this Point is equal to the given one.
@@ -45,6 +44,10 @@ class Point():
         """
         return self._x == self.ox() and self._y == self.oy
     
+    def set_x(self, x):
+        # used when wrapping occurs
+        self._x = x
+
     def get_x(self):
         """Gets the horizontal distance.
         
@@ -52,6 +55,10 @@ class Point():
             integer: The horizontal distance.
         """
         return self._x
+
+    def set_y(self, y):
+        # Used when wrapping occurs
+        self._y = y
 
     def get_y(self):
         """Gets the vertical distance.
