@@ -48,6 +48,7 @@ def main():
     '''
     director = Director(video_service)
     director.start_game(contestants, script)
+    
 if __name__ == "__main__":
     main()
 
