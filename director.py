@@ -26,7 +26,7 @@ class Director():
     player2_score = 0
     #initiates the game and the first action taking place 
     # makes sure all things are being added to the video_service too.
-    def __init__(self, video_service):
+    def __init__(self, video_service, script):
         """Constructs a new Director using the specified video service.
         
         Args:
@@ -35,9 +35,9 @@ class Director():
         self._video_service = video_service
         self._keyboard_service = KeyboardService()
         self._collision_detection = None
-        self.script_score = Script()
+        self.script_score = script
 
-    def start_game(self, contestants, script):
+    def start_game(self, contestants):
         """Starts the game using the given cast and script. Runs the main game loop.
 
         Args:
