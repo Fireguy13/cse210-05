@@ -40,6 +40,11 @@ class VideoService():
         """ 
         for player in players:
             self.draw_player(player)
+            self.draw_score(player)
+
+    def draw_score(self, player):
+        pyray.draw_text(f'Score: {player.score.get_points()}', player.score_x, player.score_y, 15, player.snake.color)
+
     
     def flush_buffer(self):
         """Copies the buffer contents to the screen. This method should be called at the end of

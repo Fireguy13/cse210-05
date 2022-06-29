@@ -9,6 +9,8 @@ class Players:
     score = Scores()
     snake = None
     grow_segments = 0
+    score_x = 0
+    score_y = 0
     def __init__(self, initial_segment_list):
         '''makes up the workings of the green and red 
         snakes upon the screen that the video_service 
