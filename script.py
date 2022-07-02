@@ -33,14 +33,3 @@ class Script():
         if players in self.players.keys():
             results = self.players[players].copy()
         return results
-    
-    def display_scores(self):
-        """Removes an action from the given group.
-        
-        Args:
-            group (string): The name of the group.
-            action (Action): The action to remove.
-        """
-        for player_scores:
-            print(f'SCORE: Player_I ={PLAYER_I = SCORE}')
-            print(f'SCORE: Player_II ={PLAYER_II = SCORE}')

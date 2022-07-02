@@ -30,8 +30,12 @@ def main():
     # a list of players could be stored somewhere like in the director
     player1.snake.color = RED
     player1.snake.set_direction(Direction((1,0)))
+    player1.score_x = 20
+    player1.score_y = 20
     player2.snake.color = GREEN
     player2.snake.set_direction(Direction((1,0)))
+    player2.score_x = 400
+    player2.score_y = 20
     contestants = Contestants([player1,player2])
     # something you would do later when you hit an event that effects your score
     #player1.score.add_points(1)
@@ -46,8 +50,8 @@ def main():
     script.add_direction("update", CollisionDetection())
     script.add_direction("output", DrawPlayersAction(video_service))
     '''
-    director = Director(video_service)
-    director.start_game(contestants, script)
+    director = Director(video_service,script)
+    director.start_game(contestants)
     
 if __name__ == "__main__":
     main()
